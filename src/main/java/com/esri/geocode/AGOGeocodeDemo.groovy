@@ -1,6 +1,5 @@
 package com.esri.geocode
 
-import groovy.json.JsonSlurper
 import groovy.transform.Field
 
 @Field
@@ -22,7 +21,7 @@ def OUT_FORMAT = "pjson"
  * @return
  */
 def geocodeMultiLine(addressParams){
-    return getURL(parameterizeURL(MULTILINE_GEOCODE_BASE_URL,addressParams))
+    return RequestHelper.getURL(RequestHelper.parameterizeURL(MULTILINE_GEOCODE_BASE_URL,addressParams))
 }
 
 /**
@@ -47,7 +46,7 @@ def geocodeSingleLine(searchText,country){
  * @return
  */
 def geocodeSingleLine(params){
-    return getURL(parameterizeURL(SINGLE_GEOCODE_BASE_URL,params))
+    return RequestHelper.getURL(RequestHelper.parameterizeURL(SINGLE_GEOCODE_BASE_URL,params))
 }
 
 /**
@@ -71,39 +70,9 @@ def reverseGeocode(lat,lon){
  * @return
  */
 def reverseGeocode(params){
-  return getURL(parameterizeURL(REVERSE_GEOCODE_BASE_URL,params))
+  return RequestHelper.getURL(RequestHelper.parameterizeURL(REVERSE_GEOCODE_BASE_URL,params))
 }
 
-/**
- * Append URL params to baseURL.  URL params will be URLEncoded for unicode
- * @param baseURL
- * @param params
- * @return encoded URL with parameters
- */
-def parameterizeURL(baseURL, params){
-    return baseURL + params.collect { k,v -> "$k=${URLEncoder.encode(v,"UTF-8")}" }.join('&')
-}
 
-/**
- * Get URL return contents as String
- * @param url
- * @return
- */
-def getURL(url){
-    return new URL(url).getText()
-}
-
-/**
- * Convert json String to parameter Map
- * @param json
- * @return
- */
-def jsonToMap(json){
-    return new JsonSlurper().parseText(json)
-}
-
-def printResult(result){
-  println(result)
-}
 
 

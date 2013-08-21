@@ -1,0 +1,23 @@
+
+organization{
+    baseURL="your.ago.org.arcgis.com"
+    namedUsers{
+        mainUser{
+            username="a.named.user.in.your.org"
+            password="some.password"
+            referer="a.domain.or.ip"
+        }
+    }
+    apps{
+        app1{
+            clientId="some.app.id"
+            clientSecret="some.app.secret"
+            grantType="client_credentials"
+        }
+        app2{
+            clientId="8sNCXj0MGXYVVVOS"
+            clientSecret="a86702b9e8f94ec19a37934c9e148968"
+            grantType="client_credentials"
+        }
+    }
+}
