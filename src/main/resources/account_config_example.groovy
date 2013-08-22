@@ -15,8 +15,8 @@ organization{
             grantType="client_credentials"
         }
         app2{
-            clientId="8sNCXj0MGXYVVVOS"
-            clientSecret="a86702b9e8f94ec19a37934c9e148968"
+            clientId="some.app.id"
+            clientSecret="some.app.secret"
             grantType="client_credentials"
         }
     }
